@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class wqweqwsad : MonoBehaviour
+public class 123213sadas : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
