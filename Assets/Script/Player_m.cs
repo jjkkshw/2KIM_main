@@ -3,21 +3,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float walkSpeed = 5f;
-    public float sprintSpeed = 9f;
-    public float crouchSpeed = 2.5f;
+    private float walkSpeed = 5f;
+    private float sprintSpeed = 9f;
+    private float crouchSpeed = 2.5f;
 
     [Header("Mouse Look")]
-    public float mouseSensitivity = 100f;
+    private float mouseSensitivity = 100f;
     public Transform playerCamera;
 
     [Header("Crouch")]
-    public float standingHeight = 2f;
-    public float crouchHeight = 1f;
+    private float standingHeight = 2f;
+    private float crouchHeight = 1f;
 
     [Header("Step Settings")]
-    public float stepHeight = 0.4f;
-    public float stepSmooth = 0.1f;
+    private float stepHeight = 0.4f;
+    private float stepSmooth = 0.1f;
 
     private Rigidbody rb;
     private CapsuleCollider col;
