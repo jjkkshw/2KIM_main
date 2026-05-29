@@ -7,8 +7,8 @@ public class GhostAI : MonoBehaviour
     private Transform player;
 
     [Header("Movement")]
-    private float roamRadius = 30f; // 이동 거리
-    private float roamTimer = 10f; // 이동 시간
+    private float roamRadius = 15f; // 이동 거리
+    private float roamTimer = 5f; // 이동 시간
 
     [Header("Speed")]
     private float roamSpeed = 2f;

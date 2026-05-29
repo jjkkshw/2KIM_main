@@ -125,4 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468eba80158f7184391b18669a3ac89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeypadClick
-  keypadCanvas: {fileID: 707431199229091347, guid: f615c4f663accfe4f87410f592ead1e1, type: 3}
+  keypadCanvas: {fileID: 0}

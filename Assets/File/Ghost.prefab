@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4831687920211697655}
   - component: {fileID: 5375422788061327414}
   - component: {fileID: 619710323265158530}
+  - component: {fileID: 8210502185952424180}
   - component: {fileID: 7504450202800077209}
-  - component: {fileID: 5534952412292737199}
-  - component: {fileID: 2248996247740207596}
+  - component: {fileID: 75618112086274560}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5889135179254766017}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.054474, y: 5.72, z: 39.330734}
+  m_LocalPosition: {x: 0.82566, y: -1.16, z: -1.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -142,6 +142,21 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8210502185952424180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889135179254766017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4230d4b83a8874eab1a252afc523af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostAI
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!82 &7504450202800077209
 AudioSource:
   m_ObjectHideFlags: 0
@@ -239,7 +254,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5534952412292737199
+--- !u!114 &75618112086274560
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,22 +263,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5889135179254766017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6597b95abb54fd6418dd89bed80e5228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GhostAI
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &2248996247740207596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5889135179254766017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c280ec5cacdcdce42802ac954389b35e, type: 3}
+  m_Script: {fileID: 11500000, guid: f194db361766d3c408d6ffcf66a5915e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostFootstep
   leftFootAudio: {fileID: 7973727199325987728}
