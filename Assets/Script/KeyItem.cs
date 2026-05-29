@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class KeyItem : MonoBehaviour, IInteractable
 {
+    [Header("Key Settings")]
+    public KeyType keyType;
+
     public void Interact()
     {
         GameObject player =
@@ -10,9 +13,9 @@ public class KeyItem : MonoBehaviour, IInteractable
         PlayerInventory inventory =
             player.GetComponent<PlayerInventory>();
 
-        inventory.hasKey = true;
+        inventory.AddKey(keyType);
 
-        Debug.Log("¿­¼è È¹µæ!");
+        Debug.Log(keyType + " ¿­¼è È¹µæ!");
 
         Destroy(gameObject);
     }

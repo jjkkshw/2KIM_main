@@ -3,11 +3,13 @@ using UnityEngine;
 public class Door : MonoBehaviour, IInteractable
 {
     [Header("Door Settings")]
-    public float openAngle = 90f;
-    public float openSpeed = 3f;
+    public float openAngle = 90f; // -90 여는 방향 반전
+    private float openSpeed = 3f;
 
     [Header("Lock Settings")]
     public bool isLocked = true;
+
+    public KeyType requiredKey = KeyType.None;
 
     private bool isOpen = false;
 
@@ -27,12 +29,12 @@ public class Door : MonoBehaviour, IInteractable
 
     void Update()
     {
-        Quaternion targetRotation =
+        Quaternion target =
             isOpen ? openRotation : closedRotation;
 
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
-            targetRotation,
+            target,
             Time.deltaTime * openSpeed
         );
     }
@@ -47,26 +49,18 @@ public class Door : MonoBehaviour, IInteractable
             PlayerInventory inventory =
                 player.GetComponent<PlayerInventory>();
 
-            if (inventory.hasKey)
+            if (inventory.HasKey(requiredKey))
             {
                 isLocked = false;
-                Debug.Log("열쇠로 문을 열었다!");
+                Debug.Log(requiredKey + " 열쇠로 잠금 해제!");
             }
             else
             {
-                Debug.Log("문이 잠겨있다.");
+                Debug.Log(requiredKey + " 열쇠가 필요합니다.");
                 return;
             }
         }
 
         isOpen = !isOpen;
-    }
-
-    // 잠금 해제 함수
-    public void UnlockDoor()
-    {
-        isLocked = false;
-
-        Debug.Log("문 잠금 해제!");
     }
 }

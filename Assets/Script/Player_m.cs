@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float stepSmooth = 0.1f;
 
     [Header("Interaction")]
-    public float interactDistance = 6f; // 상호작용 거리
+    private float interactDistance = 6f; // 상호작용 거리
 
     private Rigidbody rb;
     private CapsuleCollider col;
