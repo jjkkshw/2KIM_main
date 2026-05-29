@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     private float stepHeight = 0.4f;
     private float stepSmooth = 0.1f;
 
+    [Header("Interaction")]
+    public float interactDistance = 3f;
+
     private Rigidbody rb;
     private CapsuleCollider col;
 
@@ -45,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         HandleInput();
         MouseLook();
         HandleCrouch();
+        HandleInteraction();
     }
 
     void FixedUpdate()
@@ -131,6 +135,31 @@ public class PlayerMovement : MonoBehaviour
             Vector3 camPos = playerCamera.localPosition;
             camPos.y = 0.9f;
             playerCamera.localPosition = camPos;
+        }
+    }
+
+    // 상호작용
+    void HandleInteraction()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Ray ray = new Ray(
+                playerCamera.position,
+                playerCamera.forward
+            );
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, interactDistance))
+            {
+                IInteractable interactable =
+                    hit.collider.GetComponentInParent<IInteractable>();
+
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                }
+            }
         }
     }
 
