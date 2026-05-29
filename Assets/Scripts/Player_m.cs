@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player_m : MonoBehaviour
 {
     [Header("Movement")]
     private float walkSpeed = 5f;
