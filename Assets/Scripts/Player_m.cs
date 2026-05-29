@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_m : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     private float walkSpeed = 5f;
@@ -18,6 +18,9 @@ public class Player_m : MonoBehaviour
     [Header("Step Settings")]
     private float stepHeight = 0.4f;
     private float stepSmooth = 0.1f;
+
+    [Header("Interaction")]
+    private float interactDistance = 6f; // 상호작용 거리
 
     private Rigidbody rb;
     private CapsuleCollider col;
@@ -45,6 +48,7 @@ public class Player_m : MonoBehaviour
         HandleInput();
         MouseLook();
         HandleCrouch();
+        HandleInteraction();
     }
 
     void FixedUpdate()
@@ -131,6 +135,31 @@ public class Player_m : MonoBehaviour
             Vector3 camPos = playerCamera.localPosition;
             camPos.y = 0.9f;
             playerCamera.localPosition = camPos;
+        }
+    }
+
+    // 상호작용
+    void HandleInteraction()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Ray ray = new Ray(
+                playerCamera.position,
+                playerCamera.forward
+            );
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, interactDistance))
+            {
+                IInteractable interactable =
+                    hit.collider.GetComponentInParent<IInteractable>();
+
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                }
+            }
         }
     }
 
