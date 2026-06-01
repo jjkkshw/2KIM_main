@@ -49,3 +49,4 @@ MonoBehaviour:
   inputText: {fileID: 0}
   messageText: {fileID: 0}
   door: {fileID: 0}
+  playerController: {fileID: 0}

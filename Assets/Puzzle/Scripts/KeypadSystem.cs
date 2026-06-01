@@ -14,6 +14,9 @@ public class KeypadSystem : MonoBehaviour
     [Header("Door")]
     [SerializeField] private DoorOpen door;
 
+    [Header("Player")]
+    [SerializeField] private SimpleFirstPersonPlayer playerController;
+
     private string currentInput = "";
 
     private void Start()
@@ -28,10 +31,7 @@ public class KeypadSystem : MonoBehaviour
 
     public void PressNumber(string number)
     {
-        if (currentInput.Length >= 4)
-        {
-            return;
-        }
+        if (currentInput.Length >= 4) return;
 
         currentInput += number;
         UpdateInputText();
@@ -57,8 +57,12 @@ public class KeypadSystem : MonoBehaviour
                 messageText.text = "OPEN";
             }
 
-            door.OpenDoor();
-            keypadCanvas.SetActive(false);
+            if (door != null)
+            {
+                door.OpenDoor();
+            }
+
+            CloseKeypad();
         }
         else
         {
@@ -74,23 +78,29 @@ public class KeypadSystem : MonoBehaviour
 
     public void CloseKeypad()
     {
-        keypadCanvas.SetActive(false);
+        if (keypadCanvas != null)
+        {
+            keypadCanvas.SetActive(false);
+        }
+
+        if (playerController != null)
+        {
+            playerController.LockCursor();
+        }
     }
 
     private void UpdateInputText()
     {
-        string display = "";
+        string display = currentInput;
 
-        for (int i = 0; i < currentInput.Length; i++)
-        {
-            display += currentInput[i];
-        }
-
-        for (int i = currentInput.Length; i < 4; i++)
+        while (display.Length < 4)
         {
             display += "-";
         }
 
-        inputText.text = display;
+        if (inputText != null)
+        {
+            inputText.text = display;
+        }
     }
 }
