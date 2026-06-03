@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 2066035741366088461}
   - component: {fileID: 5761429061705352694}
   - component: {fileID: 3574667025396507421}
+  - component: {fileID: -5747687127468388867}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -293,9 +294,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c49d768068f20d4fbb2b6263eb1afb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
-  crouchSpeed: 2.5
-  mouseSensitivity: 100
   playerCamera: {fileID: 7889771636076529785}
-  standingHeight: 2
-  crouchHeight: 1
+--- !u!114 &-5747687127468388867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019670788189032916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611f98ca9bbab0143879a0397ec636f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
