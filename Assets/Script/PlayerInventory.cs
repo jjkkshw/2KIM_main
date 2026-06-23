@@ -10,6 +10,7 @@ public class PlayerInventory : MonoBehaviour
         if (!keys.Contains(key))
         {
             keys.Add(key);
+            KeyPickupMessageUI.Show(key);
             Debug.Log(key + " 열쇠 획득!");
         }
     }

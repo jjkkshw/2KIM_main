@@ -52,11 +52,9 @@ public class Door : MonoBehaviour, IInteractable
             if (inventory.HasKey(requiredKey))
             {
                 isLocked = false;
-                Debug.Log(requiredKey + " 열쇠로 잠금 해제!");
             }
             else
             {
-                Debug.Log(requiredKey + " 열쇠가 필요합니다.");
                 return;
             }
         }
