@@ -12,8 +12,6 @@ public class MenuManager : MonoBehaviour
     // 게임 종료
     public void QuitGame()
     {
-        Debug.Log("게임 종료");
-
         Application.Quit();
     }
 }

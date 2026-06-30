@@ -3,7 +3,7 @@ using UnityEngine;
 public class Door : MonoBehaviour, IInteractable
 {
     [Header("Door Settings")]
-    public float openAngle = 90f; // -90 여는 방향 반전
+    public float openAngle = 90f; // -90 ?��?�� 방향 반전
     private float openSpeed = 3f;
 
     [Header("Lock Settings")]
